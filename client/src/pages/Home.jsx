@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import MovieCard from "../components/MovieCard"
 import Navbar from "../components/Navbar"
-import { getPopularMovies } from "../services/api"
+import { getPopularMovies,searchMovie } from "../services/api"
 
 const Home = () => {
 
@@ -15,7 +15,7 @@ const Home = () => {
       try{
         const popularMovies = await getPopularMovies()
         setMovies(popularMovies)
-        console.log(popularMovies)
+        // console.log(popularMovies)
       }catch(err){
         console.log(err)
         console.log("failed to load movies")
@@ -28,9 +28,23 @@ const Home = () => {
   },[])
 
 
-  function handleSearch(event){
+  async function handleSearch (event){
     event.preventDefault()
-    alert(searchValue)
+    
+    if(!searchValue.trim()) return
+
+    setLoading(true)
+
+    try{
+      const searchResults = await searchMovie(searchValue)
+      setMovies(searchResults)
+
+    }catch(err){
+      console.log(err)
+    }finally{
+      setLoading(false)
+    }
+
     setSearchValue("")
   }
 
@@ -49,10 +63,13 @@ const Home = () => {
         <button type="submit">Search</button>
         </div>
       </form>
+      {error && <div>{error}</div>}
+
+      {loading ? <div className="loading">Loading...</div> :
       <div className="movie-grid">
         {movies.map(movie => 
         movie.title.toLocaleLowerCase().startsWith(searchValue) && <MovieCard movie={movie} key={movie.id}/>)}
-      </div>    
+      </div>    }
     </div></>
   )
 }
