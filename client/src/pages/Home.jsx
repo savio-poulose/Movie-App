@@ -3,6 +3,8 @@ import MovieCard from "../components/MovieCard"
 import Navbar from "../components/Navbar"
 import { getPopularMovies,searchMovie } from "../services/api"
 import Hero from "../components/Hero"
+import MovieQuote from "../components/MovieQuote"
+import Footer from "../components/Footer"
 
 const Home = () => {
 
@@ -54,7 +56,7 @@ const Home = () => {
     <Navbar/>
     <div className="home">
       <Hero/>
-      
+      <MovieQuote/>
       <form onSubmit={handleSearch}>
         <div className="search-place">
           <input type="text" placeholder="search movie ..."
@@ -72,6 +74,7 @@ const Home = () => {
         {movies.map(movie => 
         movie.title.toLocaleLowerCase().startsWith(searchValue) && <MovieCard movie={movie} key={movie.id}/>)}
       </div>    }
+      <Footer/>
     </div></>
   )
 }

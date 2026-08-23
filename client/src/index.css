@@ -124,6 +124,7 @@ body::-webkit-scrollbar {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: grayscale(100%);
 }
 
 .movie-overlay {
@@ -219,7 +220,7 @@ body::-webkit-scrollbar {
 /* Star Styles */
 .star {
   position: absolute;
-  color: #000000;
+  color: red;
   z-index: 10;
 }
 
@@ -229,7 +230,7 @@ body::-webkit-scrollbar {
 .star-3 { top: 50%; left: 2%; font-size: 1rem; }
 .star-4 { bottom: 25%; right: 15%; font-size: 1.4rem; }
 .star-5 { bottom: 10%; left: 30%; font-size: 0.9rem; }
-.star-6 { top: 5%; right: 35%; font-size: 1.1rem; }
+.star-6 { top: 5%; right: 25%; font-size: 1.1rem; }
 .star-7 { bottom: 5%; right: 45%; font-size: 1.3rem; }
 
 /* Right Side: Text */
@@ -275,4 +276,304 @@ body::-webkit-scrollbar {
     font-size: 4rem;
     margin-bottom: 2rem;
   }
+}
+
+.movie-quote {
+  position: relative;
+  min-height: 420px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgb(5, 0, 0);
+  padding: 60px 20px;
+  margin-bottom: 20px;
+}
+
+/* Center content */
+.quote-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 650px;
+}
+
+.quote-small {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.quote-content h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.05;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+}
+
+.quote-content h2 span {
+  color: red;
+  font-style: italic;
+}
+
+.quote-line {
+  width: 70px;
+  height: 2px;
+  background: red;
+  margin: 25px auto 18px;
+}
+
+.quote-sub {
+  color: #777;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Clapperboard */
+.quote-clapper {
+  position: absolute;
+  z-index: 4;
+  width: 430px;
+  left: -100px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-8deg);
+  transition: transform 0.4s ease;
+}
+
+.quote-clapper:hover {
+  transform: translateY(-50%) rotate(-5deg) scale(1.03);
+}
+
+/* Chaplin */
+.quote-chaplin {
+  position: absolute;
+  z-index: 3;
+  width: 480px;
+  right: -80px;
+  bottom: -80px;
+  transform: rotate(-2deg);
+  transition: transform 0.4s ease;
+}
+
+.quote-chaplin:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .movie-quote {
+    min-height: 500px;
+  }
+
+  .quote-clapper {
+    width: 300px;
+    left: -130px;
+    opacity: 0.55;
+  }
+
+  .quote-chaplin {
+    width: 350px;
+    right: -120px;
+    opacity: 0.55;
+  }
+
+  .quote-content {
+    z-index: 10;
+  }
+
+  .quote-content h2 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-quote {
+    min-height: 430px;
+  }
+
+  .quote-clapper {
+    width: 230px;
+    left: -100px;
+    top: 20%;
+  }
+
+  .quote-chaplin {
+    width: 260px;
+    right: -100px;
+    bottom: -50px;
+  }
+
+  .quote-content h2 {
+    font-size: 34px;
+  }
+
+  .quote-sub {
+    font-size: 12px;
+  }
+}
+
+.cinema-footer {
+  position: relative;
+  min-height: 400px;
+  background: #050505;
+  color: #fff;
+  padding: 70px 8% 30px;
+  overflow: hidden;
+  border-top: 1px solid #222;
+}
+
+/* subtle cinema film strip */
+.film-strip {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  opacity: 0.35;
+  background: repeating-linear-gradient(
+    90deg,
+    #555 0px,
+    #555 35px,
+    transparent 35px,
+    transparent 55px
+  );
+}
+
+.film-strip-top {
+  top: 0;
+}
+
+/* Main footer */
+.footer-content {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Brand */
+.footer-brand h2 {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  letter-spacing: 3px;
+  margin: 0 0 12px;
+}
+
+.footer-brand h2 span {
+  color: red;
+}
+
+.footer-brand p {
+  color: #777;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  gap: 100px;
+}
+
+.footer-links h4 {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: red;
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  display: block;
+  color: #777;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+/* Bottom */
+.footer-bottom {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 1100px;
+  margin: 80px auto 0;
+
+  padding-top: 20px;
+  border-top: 1px solid #222;
+
+  color: #555;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.film-text {
+  color: #777;
+  letter-spacing: 4px;
+}
+
+/* THE END IMAGE */
+
+.cinema-footer:hover .the-end {
+  opacity: 0.42;
+  transform: rotate(-3deg) scale(1.03);
+}
+
+
+
+/* -------------------- */
+/* Responsive */
+/* -------------------- */
+
+@media (max-width: 800px) {
+  .cinema-footer {
+    min-height: 500px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .footer-links {
+    gap: 60px;
+  }
+
+  
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-links {
+    gap: 35px;
+  }
+
+  .footer-links h4 {
+    font-size: 10px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+  }
+
+  
 }
