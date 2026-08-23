@@ -2,6 +2,7 @@ import { useState,useEffect } from "react"
 import MovieCard from "../components/MovieCard"
 import Navbar from "../components/Navbar"
 import { getPopularMovies,searchMovie } from "../services/api"
+import Hero from "../components/Hero"
 
 const Home = () => {
 
@@ -52,6 +53,7 @@ const Home = () => {
     <>
     <Navbar/>
     <div className="home">
+      <Hero/>
       
       <form onSubmit={handleSearch}>
         <div className="search-place">
@@ -60,7 +62,7 @@ const Home = () => {
          value={searchValue}
          onChange={(event) => setSearchValue(event.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit" >Search</button>
         </div>
       </form>
       {error && <div>{error}</div>}

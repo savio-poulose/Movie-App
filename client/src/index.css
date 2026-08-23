@@ -47,7 +47,7 @@ body::-webkit-scrollbar {
 }
 
 .home{
-    background-color:aliceblue;    
+    /* background-color:aliceblue;     */
     min-height: 91vh;
     width: 99vw;
 }
@@ -58,6 +58,7 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .search-place{
@@ -177,5 +178,101 @@ body::-webkit-scrollbar {
 
   .poster img {
     height: 220px;
+  }
+}
+
+
+
+
+/* Main Layout */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  background-color: #ffffff;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* Left Side: Octopus and Stars */
+.octopus-wrapper {
+  position: relative;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -70px;
+}
+
+.octopus-image {
+  
+  max-width: 650px; /* Adjust based on your actual image size */
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+/* Star Styles */
+.star {
+  position: absolute;
+  color: #000000;
+  z-index: 10;
+}
+
+/* Positioning the stars around the octopus */
+.star-1 { top: 10%; left: 15%; font-size: 0.8rem; }
+.star-2 { top: 25%; right: 5%; font-size: 1.2rem; }
+.star-3 { top: 50%; left: 2%; font-size: 1rem; }
+.star-4 { bottom: 25%; right: 15%; font-size: 1.4rem; }
+.star-5 { bottom: 10%; left: 30%; font-size: 0.9rem; }
+.star-6 { top: 5%; right: 35%; font-size: 1.1rem; }
+.star-7 { bottom: 5%; right: 45%; font-size: 1.3rem; }
+
+/* Right Side: Text */
+.text-wrapper {
+  width: 45%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 3rem;
+}
+
+.hero-title {
+  font-size: 10.5rem;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 2px;
+  z-index: 1;
+  position: relative;
+  left: -200px;
+}
+.explore{
+  z-index: 44;
+}
+
+/* Responsive adjustments for mobile/tablets */
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+    padding-top: 4rem;
+  }
+  
+  .octopus-wrapper, .text-wrapper {
+    width: 100%;
+    padding-left: 0;
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+    margin-bottom: 2rem;
   }
 }
