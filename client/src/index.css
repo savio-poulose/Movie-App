@@ -281,22 +281,18 @@ body::-webkit-scrollbar {
 
 .movie-quote {
   position: relative;
-
   min-height: 520px;
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
-
   background: rgb(5, 0, 0);
-
   padding: 60px 20px;
-
   margin-bottom: 20px;
 }
+
+/* Background image */
 
 
 
@@ -399,23 +395,15 @@ body::-webkit-scrollbar {
 
 
 .quote-clapper {
-  position: absolute;
-
+   position: absolute;
   z-index: 4;
-
   width: 430px;
-
   left: -20px;
-
   top: 50%;
 
-  transform:
-    translateY(-20%)
-    rotate(-8deg);
-     transform: scaleX(-1);
+  transform: translateY(-20%) rotate(-8deg) scaleX(-1);
 
-  transition:
-    transform 0.4s ease;
+  transition: transform 0.4s ease;
 }
 
 
@@ -428,7 +416,7 @@ body::-webkit-scrollbar {
 
   z-index: 3;
 
-  width: 480px;
+  width: 460px;
 
   right: -80px;
 

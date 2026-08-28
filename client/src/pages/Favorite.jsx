@@ -3,7 +3,7 @@ import { useMovieContext } from "../Contexts/MovieContext"
 import MovieCard from "../components/MovieCard"
 
 function Favorite(){
-    const {favorites,setFavorites} = useMovieContext()
+    const {favorites} = useMovieContext()
     return(
         <div>
             <Navbar/>
