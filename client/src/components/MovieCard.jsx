@@ -1,21 +1,33 @@
-import {  useState } from "react"
+// import {  useState } from "react"
+import { useMovieContext } from "../Contexts/MovieContext"
 
 const MovieCard = ({movie}) => {
 
-  const [heart,setHeart] = useState(false)
+  
+  const {favorites,setFavorites} = useMovieContext()
   
 
-  function handleFavBtn(){
-    setHeart(!heart)
+  const isFavorite = favorites.some(
+    (fav) => fav.id === movie.id
+  );
+
+  function handleFavBtn() {
+    if (!isFavorite) {
+      setFavorites([...favorites, movie]);
+    } else {
+      setFavorites(
+        favorites.filter((fav) => fav.id !== movie.id)
+      );
+    }
   }
-    
+
   
   return (
     <div className="movie-card">
       <div className="poster">
         <img src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
         <div className="movie-overlay">
-          <button className="fav-btn" onClick={handleFavBtn}>{heart ? "♥" : "♡"}</button>
+          <button className="fav-btn" onClick={() => handleFavBtn(movie.id)}>{isFavorite ? "♥" : "♡"}</button>
         </div>
       </div>
       <div className="movie-info">

@@ -1,10 +1,16 @@
 import Navbar from "../components/Navbar"
+import { useMovieContext } from "../Contexts/MovieContext"
+import MovieCard from "../components/MovieCard"
+
 function Favorite(){
+    const {favorites,setFavorites} = useMovieContext()
     return(
         <div>
             <Navbar/>
             <div className="favorite">
-            <h2>theres no favorites yet</h2>
+            <div className="movie-grid">
+        {favorites.map(movie => <MovieCard movie={movie} key={movie.id}/>)}
+      </div>
         </div>
         </div>
     )
