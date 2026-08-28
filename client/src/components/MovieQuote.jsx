@@ -1,31 +1,37 @@
-import clapperboard from "../assets/clapperboard.png";
-import chaplin from "../assets/chaplin-camera.png"
+// import clapperboard from "../assets/clapperboard.png";
+import cityofgod from "../assets/cityofgod.png"
+import chaplin from "../assets/chaplin-camera.png";
+
 const MovieQuote = () => {
   return (
     <section className="movie-quote">
-      
+
       {/* Left image */}
       <img
-        src={clapperboard}
+        src={cityofgod}
         alt="Movie clapperboard"
         className="quote-clapper"
       />
 
-      {/* Center text */}
+      {/* Center content */}
       <div className="quote-content">
-        <p className="quote-small">THE MAGIC OF CINEMA</p>
+
+        {/* <p className="quote-small">
+          THE MAGIC OF CINEMA
+        </p> */}
 
         <h2>
-          “Movies are the
+          MOVIES ARE THE
           <br />
-          best kind of <span>escape.</span>”
+          BEST KIND OF <span>ESCAPE.</span> 
         </h2>
 
-        <div className="quote-line"></div>
+        {/* <div className="quote-line"></div> */}
 
-        <p className="quote-sub">
+        {/* <p className="quote-sub">
           Sit back. Press play. Forget the world for a while.
-        </p>
+        </p> */}
+
       </div>
 
       {/* Right image */}
